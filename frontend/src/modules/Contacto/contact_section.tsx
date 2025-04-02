@@ -1,10 +1,13 @@
-import React from "react";
+
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogTrigger, DialogContent } from "@/components/ui/dialog";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { Calendar } from "@/components/ui/calendar";
 import { FaWhatsapp, FaPhone, FaMapMarkerAlt, FaClock, FaCalendarAlt, FaPaperPlane } from "react-icons/fa";
+import { DialogTitle } from "@radix-ui/react-dialog";
+import ContactForm from "./components/contactForm";
+import BookingForm from "./components/bookingForm";
+
+
+
 
 const ContactPage = () => {
   return (
@@ -76,6 +79,8 @@ const ContactPage = () => {
                 </Button>
               </DialogTrigger>
               <DialogContent className="sm:max-w-[600px]">
+              <DialogTitle className="text-2xl font-bold">Dejanos tu consulta
+              </DialogTitle>
                 <ContactForm />
               </DialogContent>
             </Dialog>
@@ -92,6 +97,8 @@ const ContactPage = () => {
                 </Button>
               </DialogTrigger>
               <DialogContent className="sm:max-w-[700px]">
+                <DialogTitle className="text-2xl font-bold">Reserva tu cita
+                </DialogTitle>
                 <BookingForm />
               </DialogContent>
             </Dialog>
@@ -102,63 +109,5 @@ const ContactPage = () => {
   );
 };
 
-// Componente del formulario de contacto
-const ContactForm = () => {
-  return (
-    <div className="space-y-4">
-      <h2 className="text-2xl font-bold">Envíanos tu consulta</h2>
-      <Input placeholder="Nombre completo" />
-      <Input placeholder="Email" type="email" />
-      <Input placeholder="Teléfono (opcional)" type="tel" />
-      <Textarea placeholder="Tu mensaje" rows={5} />
-      <Button className="w-full bg-cyan-600 hover:bg-[var(--custom-green)]">Enviar mensaje</Button>
-    </div>
-  );
-};
-
-// Componente del formulario de reserva
-const BookingForm = () => {
-  const [date, setDate] = React.useState<Date | undefined>(new Date());
-  
-  return (
-    <div className="space-y-4">
-      <h2 className="text-2xl font-bold">Reserva tu cita</h2>
-      
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {/* Calendario */}
-        <div>
-          <h3 className="font-medium mb-2">Selecciona una fecha</h3>
-          <Calendar
-            mode="single"
-            selected={date}
-            onSelect={setDate}
-            className="rounded-md border"
-          />
-        </div>
-        
-        {/* Horario y datos */}
-        <div className="space-y-4">
-          <div>
-            <h3 className="font-medium mb-2">Horario disponible</h3>
-            <div className="grid grid-cols-3 gap-2">
-              {['10:00', '11:00','12:00','13:00','14:00','15:30','16:30', '17:30', '18:30', '19:30'].map(time => (
-                <Button variant="outline" key={time}>
-                  {time}
-                </Button>
-              ))}
-            </div>
-          </div>
-          
-          <Input placeholder="Nombre completo" />
-          <Input placeholder="Email" type="email" />
-          <Input placeholder="Teléfono" type="tel" />
-          <Textarea placeholder="Motivo de la consulta" rows={3} />
-          
-          <Button className="w-full bg-cyan-600 hover:bg-[var(--custom-green)]">Confirmar reserva</Button>
-        </div>
-      </div>
-    </div>
-  );
-};
 
 export default ContactPage;

@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { Menu, X, Phone } from "lucide-react";
-import { Toaster } from "react-hot-toast";
 import logo from "../assets/logo.png";
 
 const navigation = [
@@ -78,7 +77,7 @@ function NavBar() {
         </div>
       </div>
 
-      <Toaster />
+      
     </header>
   );
 }
