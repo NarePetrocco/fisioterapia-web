@@ -14,6 +14,8 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import { toast } from "sonner";
+import emailjs from 'emailjs-com';
+
 
 
 
@@ -40,27 +42,39 @@ const ContactForm = () => {
     },
   });
 
-  async function onSubmit(values: z.infer<typeof contactFormSchema>) {
+  const sendEmail = async (values: z.infer<typeof contactFormSchema>) => {
     try {
-      await new Promise(resolve => setTimeout(resolve, 1000));
-      
+      // Usar EmailJS para enviar el formulario
+      await emailjs.send(
+        "service_l9o7ykf",  // Reemplaza con tu Service ID
+        "template_0ulxo4d", // Reemplaza con tu Template ID
+        {
+          name: values.name,
+          email: values.email,
+          phone: values.phone || "No proporcionado",
+          message: values.message,
+        },      // Datos del formulario
+        "0Xg_7VFbkIMsOVN4u"      // Reemplaza con tu User ID
+      );
       toast.success("Mensaje enviado", {
         description: "Hemos recibido tu consulta. Te responderemos pronto.",
       });
-      
       form.reset();
     } catch (error) {
       toast.error("Error al enviar", {
         description: "Ocurrió un error al enviar tu mensaje. Por favor inténtalo de nuevo.",
       });
     }
-  }
+  };
+
+    // Función que se ejecuta cuando el formulario es enviado
+    const onSubmit = async (values: z.infer<typeof contactFormSchema>) => {
+      await sendEmail(values);
+    };
 
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
-
-        
         <FormField
           control={form.control}
           name="name"
@@ -74,7 +88,7 @@ const ContactForm = () => {
             </FormItem>
           )}
         />
-        
+
         <FormField
           control={form.control}
           name="email"
@@ -88,7 +102,7 @@ const ContactForm = () => {
             </FormItem>
           )}
         />
-        
+
         <FormField
           control={form.control}
           name="phone"
@@ -102,7 +116,7 @@ const ContactForm = () => {
             </FormItem>
           )}
         />
-        
+
         <FormField
           control={form.control}
           name="message"
@@ -116,9 +130,9 @@ const ContactForm = () => {
             </FormItem>
           )}
         />
-        
-        <Button 
-          type="submit" 
+
+        <Button
+          type="submit"
           className="w-full bg-cyan-600 hover:bg-[var(--custom-green)]"
           disabled={form.formState.isSubmitting}
         >

@@ -1,5 +1,6 @@
-import { BrowserRouter as Router, Routes, } from 'react-router-dom';
+import { BrowserRouter as Router, Routes } from 'react-router-dom';
 import WebRoutes from './modules/router';
+import { Toaster } from 'sonner';
 
 function App() {
   return (
@@ -7,6 +8,9 @@ function App() {
       <Routes>
         {WebRoutes}  {/* Ya no necesitas el operador de propagación */}
       </Routes>
+
+      {/* Coloca el componente Toaster donde quieres que los toasts aparezcan */}
+      <Toaster />
     </Router>
   );
 }
