@@ -1,10 +1,11 @@
 
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogTrigger, DialogContent } from "@/components/ui/dialog";
-import { FaWhatsapp, FaPhone, FaMapMarkerAlt, FaClock, FaCalendarAlt, FaPaperPlane } from "react-icons/fa";
+import { FaWhatsapp, FaPhone, FaMapMarkerAlt, FaClock, FaPaperPlane } from "react-icons/fa";
 import { DialogTitle } from "@radix-ui/react-dialog";
 import ContactForm from "./components/contactForm";
 import BookingForm from "./components/bookingForm";
+import BookingButton from "@/components/bookingbutton";
 
 
 
@@ -90,18 +91,17 @@ const ContactPage = () => {
           <div className="bg-gray-50 p-6 rounded-lg">
             <h3 className="text-xl font-bold mb-4">Reserva tu cita</h3>
             
-            <Dialog>
-              <DialogTrigger asChild>
-                <Button className="w-full gap-2 bg-[var(--custom-green)] hover:bg-green-700">
-                  <FaCalendarAlt /> Reservar ahora
-                </Button>
-              </DialogTrigger>
-              <DialogContent className="sm:max-w-[700px]">
-                <DialogTitle className="text-2xl font-bold">Reserva tu cita
-                </DialogTitle>
-                <BookingForm />
-              </DialogContent>
-            </Dialog>
+           {/* Aquí está el Dialog que envuelve todo */}
+      <Dialog>
+        {/* Usamos el botón en este lugar */}
+        <BookingButton />
+
+        {/* El contenido del Dialog donde se muestra el formulario */}
+        <DialogContent className="sm:max-w-[700px]">
+          <DialogTitle className="text-2xl font-bold">Reserva tu cita</DialogTitle>
+          <BookingForm />
+        </DialogContent>
+      </Dialog>
           </div>
         </div>
       </section>

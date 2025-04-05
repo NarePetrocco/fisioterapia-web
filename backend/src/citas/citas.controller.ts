@@ -4,11 +4,12 @@ import { CreateCitaDto } from './dto/create-cita.dto';
 
 @Controller('citas')
 export class CitasController {
-  constructor(private citasService: CitasService) {}
+  constructor(private readonly citasService: CitasService) {}
 
- // src/citas/citas.controller.ts
-@Post()
-async crearCita(@Body() citaData: CreateCitaDto) {
-  return this.citasService.crearCita(citaData);
-}
+  @Post()
+  async crearCita(@Body() citaData: CreateCitaDto) {
+    // Almacenar la cita en la base de datos
+    const cita = await this.citasService.crearCita(citaData);
+    return cita; // Retornamos la cita para confirmar que se ha guardado
+  }
 }

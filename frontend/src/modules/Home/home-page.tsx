@@ -1,4 +1,5 @@
 import Carousel from "../Home/components/carousel";
+import BookingButton from "@/components/bookingbutton";
 
 const HomePage = () => {
   return (

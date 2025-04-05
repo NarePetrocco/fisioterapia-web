@@ -20,6 +20,8 @@ import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover
 import { format } from "date-fns";
 import { cn } from "@/lib/utils";
 import { FiLoader } from "react-icons/fi";
+import ReservarCita from "@/components/bookingemail";
+import emailjs from 'emailjs-com';
 
 
 
@@ -76,6 +78,25 @@ const BookingForm = () => {
           const errorData = await response.json();
           throw new Error(errorData.message || "Error en la reserva");
         }
+
+        const emailParams = {
+          to_email: 'narellapetrocco@gmail.com', // Reemplaza con tu email
+          from_name: requestBody.nombrePaciente,
+          paciente_email: requestBody.email,
+          paciente_telefono: requestBody.telefono,
+          fecha_cita: requestBody.fecha,
+          hora_cita: requestBody.hora,
+          motivo_cita: requestBody.motivo,
+        };
+        
+        emailjs.send('service_jks594v', 'template_xbzlp6u', emailParams, '0Xg_7VFbkIMsOVN4uD')
+          .then((response) => {
+            console.log('Correo enviado: ', response);
+          })
+          .catch((error) => {
+            console.error('Error al enviar el correo: ', error);
+          });
+        
     
         toast.dismiss(loadingToast);
         toast.success("Cita reservada", {

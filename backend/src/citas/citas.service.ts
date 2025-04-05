@@ -1,4 +1,3 @@
-// src/citas/citas.service.ts
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
@@ -13,14 +12,16 @@ export class CitasService {
   ) {}
 
   async crearCita(citaData: CreateCitaDto): Promise<Cita> {
+    // Crea la nueva cita en la base de datos
     const nuevaCita = this.citasRepository.create({
       nombrePaciente: citaData.nombrePaciente,
       email: citaData.email,
       telefono: citaData.telefono,
-      fecha: new Date(citaData.fecha), // Convierte string a Date
+      fecha: new Date(citaData.fecha),
       hora: citaData.hora,
-      motivo: citaData.motivo
+      motivo: citaData.motivo,
     });
-    return await this.citasRepository.save(nuevaCita);
+    await this.citasRepository.save(nuevaCita);
+    return nuevaCita; // Retornamos la cita que fue almacenada
   }
 }
