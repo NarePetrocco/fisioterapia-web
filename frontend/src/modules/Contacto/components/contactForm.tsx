@@ -30,7 +30,6 @@ const contactFormSchema = z.object({
 
 
 
-// Componente del formulario de contacto mejorado
 const ContactForm = () => {
   const form = useForm<z.infer<typeof contactFormSchema>>({
     resolver: zodResolver(contactFormSchema),
@@ -44,17 +43,17 @@ const ContactForm = () => {
 
   const sendEmail = async (values: z.infer<typeof contactFormSchema>) => {
     try {
-      // Usar EmailJS para enviar el formulario
+     
       await emailjs.send(
-        "service_l9o7ykf",  // Reemplaza con tu Service ID
-        "template_0ulxo4d", // Reemplaza con tu Template ID
+        "service_l9o7ykf",  
+        "template_0ulxo4d", 
         {
           name: values.name,
           email: values.email,
           phone: values.phone || "No proporcionado",
           message: values.message,
-        },      // Datos del formulario
-        "0Xg_7VFbkIMsOVN4u"      // Reemplaza con tu User ID
+        },     
+        "0Xg_7VFbkIMsOVN4u"      
       );
       toast.success("Mensaje enviado", {
         description: "Hemos recibido tu consulta. Te responderemos pronto.",

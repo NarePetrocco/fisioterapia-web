@@ -1,7 +1,7 @@
 // components/ReserveButton.tsx
 
-import { DialogTrigger } from '@radix-ui/react-dialog'; // Solo necesitamos DialogTrigger
-import { Button } from '@/components/ui/button'; // El botón personalizado que estás usando
+import { DialogTrigger } from '@radix-ui/react-dialog'; 
+import { Button } from '@/components/ui/button'; 
 import { FaCalendarAlt } from 'react-icons/fa';
 
 const BookingButton = () => {

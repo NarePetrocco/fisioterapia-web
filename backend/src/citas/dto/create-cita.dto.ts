@@ -16,7 +16,7 @@ export class CreateCitaDto {
 
   @IsDateString({}, { message: 'La fecha debe tener un formato válido (YYYY-MM-DD)' })
   @IsNotEmpty()
-  fecha: string; // Se usa `string` en lugar de `Date`, porque el cliente enviará un texto.
+  fecha: string; 
 
   @IsString()
   @Length(5, 5, { message: 'La hora debe estar en formato HH:MM' })

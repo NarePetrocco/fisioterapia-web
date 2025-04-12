@@ -7,7 +7,7 @@
 
 
 :root {
-  font-family: 'Quicksand', system-ui, -apple-system, sans-serif; /* Quicksand como primera opción */
+  font-family: 'Quicksand', system-ui, -apple-system, sans-serif; 
   line-height: 1.5;
   font-weight: 400;
 
@@ -60,7 +60,7 @@
 
 body {
   margin: 0;
-  display: block; /* Cambia de flex a block (o elimínalo si no es necesario) */
+  display: block; 
   min-width: 320px;
   min-height: 100vh;
 }
@@ -161,7 +161,7 @@ body {
 
 @layer base {
   * {
-    @apply border-border outline-ring/50; /* Solo una definición */
+    @apply border-border outline-ring/50; 
   }
   body {
     @apply bg-background text-foreground;
@@ -174,7 +174,7 @@ body {
 
 
 .carousel-container {
-  height: 600px !important; /* Fuerza la altura */
+  height: 600px !important; 
   position: relative !important;
   overflow: hidden !important;
   margin-top: 80px;

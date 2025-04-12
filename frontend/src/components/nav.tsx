@@ -17,12 +17,12 @@ function NavBar() {
   return (
     <header className="w-full bg-white fixed top-0 left-0 right-0 z-50 shadow-md">
       <div className="w-full flex items-center justify-between px-6 sm:px-8 lg:px-12 h-20">
-        {/* Logo */}
+       
         <div className="flex-shrink-0">
           <img src={logo} alt="Logo" className="h-16 w-auto" />
         </div>
 
-        {/* Desktop Navigation */}
+        
         <nav className="hidden md:flex space-x-12">
           {navigation.map((item) => (
             <NavLink
@@ -39,13 +39,12 @@ function NavBar() {
           ))}
         </nav>
 
-        {/* Contact Info */}
         <div className="hidden md:flex items-center space-x-2 text-lg font-semibold">
           <Phone className="h-5 w-5 text-gray-600" />
           <span className="text-black">+614 33 23 12</span>
         </div>
 
-        {/* Mobile Menu Button */}
+       
         <button
           className="md:hidden p-2 rounded-md hover:bg-gray-200"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -54,10 +53,10 @@ function NavBar() {
         </button>
       </div>
 
-      {/* Separator */}
+    
       <div className="border-t border-gray-300" />
 
-      {/* Mobile Navigation */}
+  
       <div className={`md:hidden ${mobileMenuOpen ? "block" : "hidden"} transition-all duration-300 ease-in-out bg-white`}>
         <div className="px-4 py-3 space-y-2">
           {navigation.map((item) => (
@@ -69,7 +68,7 @@ function NavBar() {
               {item.name}
             </NavLink>
           ))}
-          {/* Mobile Contact Info */}
+         
           <div className="flex items-center space-x-2 text-base font-medium pt-2">
             <Phone className="h-5 w-5 text-gray-600" />
             <span className="text-black">+614 33 23 12</span>

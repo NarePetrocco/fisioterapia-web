@@ -1,4 +1,4 @@
-// src/citas/entities/cita.entity.ts
+
 import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
 
 @Entity()
@@ -7,7 +7,7 @@ export class Cita {
   id: number;
 
   @Column({ name: 'nombre_paciente' })
-  nombrePaciente: string;  // Usar camelCase en TypeScript
+  nombrePaciente: string;  
 
   @Column()
   email: string;

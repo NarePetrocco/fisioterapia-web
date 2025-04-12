@@ -61,7 +61,7 @@ const BookingForm = () => {
           nombrePaciente: values.name,
           email: values.email,
           telefono: values.phone,
-          fecha: values.date.toISOString().split('T')[0], // Formato YYYY-MM-DD
+          fecha: values.date.toISOString().split('T')[0], 
           hora: values.time,
           motivo: values.reason
         };
@@ -80,7 +80,7 @@ const BookingForm = () => {
         }
 
         const emailParams = {
-          to_email: 'narellapetrocco@gmail.com', // Reemplaza con tu email
+          to_email: 'narellapetrocco@gmail.com',
           from_name: requestBody.nombrePaciente,
           paciente_email: requestBody.email,
           paciente_telefono: requestBody.telefono,

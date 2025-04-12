@@ -8,14 +8,14 @@ dotenv.config();
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
-  // Configuración CORS
+ 
   const corsOptions: CorsOptions = {
-    origin: 'https://localhost:5173', // Permitir solicitudes solo desde tu frontend
+    origin: 'https://localhost:5173', 
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-    allowedHeaders: 'Content-Type, Accept, Authorization', // Ajusta los headers según tus necesidades
+    allowedHeaders: 'Content-Type, Accept, Authorization', 
   };
 
-  app.enableCors(corsOptions); // Habilitar CORS con las opciones especificadas
+  app.enableCors(corsOptions); 
 
   await app.listen(3000);
 }

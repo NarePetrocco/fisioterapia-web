@@ -10,7 +10,7 @@ import Layout from './layout';
 const WebRoutes = (
   <Route path='/' element={<Layout />}>
     {/* Rutas hijas */}
-    <Route index element={<HomePage />} />  {/* "index" reemplaza a path="/" */}
+    <Route index element={<HomePage />} />  
     <Route path="servicios" element={<Services />} />
     <Route path="sobre-mi" element={<AboutMe />} />
     <Route path="testimonios" element={<Testimonials />} />

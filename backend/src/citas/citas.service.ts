@@ -22,6 +22,6 @@ export class CitasService {
       motivo: citaData.motivo,
     });
     await this.citasRepository.save(nuevaCita);
-    return nuevaCita; // Retornamos la cita que fue almacenada
+    return nuevaCita; 
   }
 }

@@ -91,9 +91,9 @@ const ContactPage = () => {
           <div className="bg-gray-50 p-6 rounded-lg">
             <h3 className="text-xl font-bold mb-4">Reserva tu cita</h3>
             
-           {/* Aquí está el Dialog que envuelve todo */}
+           
       <Dialog>
-        {/* Usamos el botón en este lugar */}
+      
         <BookingButton />
 
         {/* El contenido del Dialog donde se muestra el formulario */}

@@ -6,10 +6,10 @@ function App() {
   return (
     <Router>
       <Routes>
-        {WebRoutes}  {/* Ya no necesitas el operador de propagación */}
+        {WebRoutes}  
       </Routes>
 
-      {/* Coloca el componente Toaster donde quieres que los toasts aparezcan */}
+   
       <Toaster />
     </Router>
   );
